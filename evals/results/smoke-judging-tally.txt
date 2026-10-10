@@ -1,0 +1,1 @@
+Smoke judging 2026-10-10 (self-judged, contaminated, see JUDGMENTS-smoke.md): v3.3.0 3/3 vs v3.1.0. Pipeline validated; not evidence.
