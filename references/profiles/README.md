@@ -46,6 +46,22 @@ copy the samples' facts, names, or dates into the profile. Run
 file for the context, done. A profile with fewer than 3 samples says so at the
 top.
 
+Sample counts answer two different questions. 5-10 samples is enough for the
+style summary and exemplars (few-shot style capture). Measuring stable
+statistical bands needs more: writing-eval's calibration study found 25 samples
+cover ~70% of stable scores and 40 cover ~87%, with article count mattering
+more than total words. Until then, label the bands provisional.
+
+Three rules from prior art (full survey in `PRIOR-ART.md`):
+
+- **Authorization.** Only profile prose the writer owns or published. Their
+  samples stay out of git if they are private.
+- **Rebuild, don't append.** When the corpus grows, rebuild the profile from
+  all of it rather than patching the oldest summary.
+- **Exemplars stay verbatim.** A summary alone drifts generic; verbatim
+  excerpts are what keep the rewrite honest, which is why voice-fidelity
+  products keep both.
+
 ## Using one at rewrite time
 
 If `references/profiles/` contains a profile matching the writer, or the user
@@ -60,6 +76,9 @@ sample pasted into the request. Two limits hold regardless:
    clearly differs from the profile's (a reply to a frustrated reader, a formal
    request that reaches a new audience), follow the situation and say so in the
    summary you return.
+
+A writing sample pasted directly into the request outranks a saved profile: it
+is fresher evidence of how the writer wants to sound right now.
 
 ## Maintenance
 
