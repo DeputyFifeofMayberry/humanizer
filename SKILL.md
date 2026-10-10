@@ -7,7 +7,7 @@ description: |
   language, stock AI words, bold labels, or filler. Based on Wikipedia's "Signs of AI writing."
 license: MIT
 metadata:
-  version: "3.2.0"
+  version: "3.3.0"
 ---
 
 # Humanizer: remove AI writing patterns
@@ -63,6 +63,17 @@ Keep the details that carry the writer's voice unless they hurt the meaning:
 - Dated, era-bound references: slang, memes, and in-jokes that map to a specific year and subculture.
 - A first-person choice the writer can explain.
 - A genuine aside, parenthetical, or self-correction: "(I keep wanting to say 'almost' here, but it really was certain.)"
+
+## The rhythm check
+
+Removing lexical tells makes prose more uniformly well-shaped, and uniform good shape is itself a tell. In blind judging of this skill's output, rhythm criticisms rose from 60 to 101 and aphoristic closers from 38 to 61 across a rewrite that eliminated every lexical tell. Before writing the final version, check the document as a whole:
+
+- **Beat rate.** Paragraphs that land the same shape at near-identical lengths read as generated, even when every sentence is clean. Let one paragraph run long and its neighbor stay short when the content allows it. Give a paragraph room when its point needs it and less when it does not; never vary shape for its own sake.
+- **Endings.** A section that closes by tightening into a quotable line is machinery when every section does it. End some sections on the flattest available or most concrete sentence, or mid-thought. Not everything resolves.
+- **Contractions.** Removing every contraction, or spreading them evenly, is itself a pattern. Match the register: formal prose keeps few, casual prose keeps most, and the rate should follow each sentence's own voice.
+- **Openings.** Re-check §7 across paragraphs, not only sentences: consecutive paragraphs that open with the same move count too.
+
+The full inventory of rhythmic tells, the measured evidence, and the constructions that must not be encoded are in `references/rhythm.md`. Read it when a document resists cleanup and still reads as machine-made.
 
 ## A. Staging instead of stating
 

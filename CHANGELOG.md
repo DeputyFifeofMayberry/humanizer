@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.3.0
+
+- Added a rhythm check between draft and final version. Blind judging of the rewrite pass found the tells it removes go to zero while the ones it does not touch grow: uniform beat rate 60 → 101 citations, aphoristic closers 38 → 61, contraction uniformity 21 → 43. A subtractive rewrite leaves prose more uniformly well-shaped, and uniform good shape is itself a tell.
+- The check covers paragraph beat rate, section endings that tighten into quotable lines, contraction rate flattened in either direction, and paragraph openings repeating the same move. It varies shape only where the content allows it, never for its own sake.
+- Added `references/rhythm.md` with the full rhythmic-tell inventory, the measured evidence, and the constructions that must not be encoded (performed hedging 0.89, self-answered question 0.00, typography 0.61 — all misfire on human prose). Added `evals/` with mechanical rhythm metrics, a six-register corpus, and the blind pairwise protocol. No change to the 26 patterns.
+
 ## 3.2.0
 
 - Rewrote the "After" examples that added facts missing from their "Before" (§2, §3, §4, §6, §12, §18, §19, §20, §25, §26), so every example follows the no-invention rule. §26 also no longer ends with chatbot residue.
