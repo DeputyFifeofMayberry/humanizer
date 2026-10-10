@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.4.0
+
+- Voice profiles: writing samples can now be saved under `references/profiles/` and reused across rewrites instead of pasted per request. A profile counts as a writing sample at the same strength, with two limits that always hold: style carries over, facts do not, and the profile never outranks the no-fabrication rule. Building and maintenance rules in `references/profiles/README.md`; corrections the user makes to a rewrite update the profile in the same session. Includes an illustrative example profile. No change to the 26 patterns.
+
 ## 3.3.0
 
 - Added a rhythm check between draft and final version. Blind judging of the rewrite pass found the tells it removes go to zero while the ones it does not touch grow: uniform beat rate 60 → 101 citations, aphoristic closers 38 → 61, contraction uniformity 21 → 43. A subtractive rewrite leaves prose more uniformly well-shaped, and uniform good shape is itself a tell.
