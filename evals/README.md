@@ -43,10 +43,12 @@ analysis: ~3.6 points at n=282).
 3. **Mechanical gate.** New version must not: lower `sentence_len_cv` /
    `para_word_cv` (more metronomic), raise `punchy_closers` or `triads`, or add
    colons as dash-replacement spam. Direction matters, not magnitude. Absolute
-   floors from the human-prose sweep (`results/human-prose-sweep.md`): flag a
-   rewrite below `sentence_len_cv` 0.48 or `para_word_cv` 0.57, or above
-   `balanced_clause_share` 0.5 — no verified-human text in the sweep corpus
-   crosses those lines.
+   flags, revised from the 11.5M-word OANC sweep
+   (`results/oanc-sweep.md`; supersedes the 24-file pilot floors): flag a
+   rewrite below `sentence_len_cv` 0.44 or — for multi-paragraph texts —
+   below `para_word_cv` 0.40, or above `balanced_clause_share` 0.5. At these
+   lines roughly 5% of human documents flag, so a flag is a review trigger
+   with a measured false-positive rate, not a verdict.
 4. **Blind pairwise.** Judges (a different model family than the rewriter when
    possible) see pairs A/B on the same subject at similar length and answer only
    *"which is the better piece of writing"* — authorship never mentioned. Strip
