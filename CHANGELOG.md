@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.6.0
+
+- Added "What the rewrite must never add" after the workflow steps: the rewrite-side failure mode where the editor strips machine tells and installs a stock "human" voice instead. Bans inserting a speaker perspective the source does not record, manufactured stakes, a foil the source never argues with, performed candor, dramatic dashes and manufactured fragments, and any specific the source does not supply. Adapted from conorbronsdon/avoid-ai-writing's editing contract (which credits an independent stress test of `blader/humanizer` and isatimur/de-slop); our own 9/0 human-gate data independently supports it — the performed looseness the gate rejected is this failure mode seen from the reader's side.
+- Step 1 gained a paragraph-order test: if two body paragraphs could swap without breaking the piece, the order is decorative. "What to return" gained the no-op rule: text with no justified tells comes back unchanged. §22 now covers shipped machine artifacts (unfilled placeholders, chatbot citation markup, AI tracking parameters). §12 notes that delve, tapestry, and garner are near-machine-only markers while the rest of the list weighs as wordiness fixes, not authorship evidence. No change to the 26 patterns.
+- Evals: added the external detector cross-check (`avoid-ai-writing-detector`) over the corpus and all twelve rewrites — raw drafts score 3–18, rewrites 0–5 once the header-line artifact is discounted, with one Tier-1 word ("optimize") their list catches and ours does not, flagged as a §12 candidate pending the false-positive sweep. Cross-check only; its authors' own paragraph-level ROC-AUC of 0.501 keeps it out of the gate role.
+- CI: added a `validate` workflow running the package validator and the metrics self-check on every push. It does not gate prose — report-only stands.
+
 ## 3.5.0
 
 - Removed the rhythm check pass added in 3.3.0. Blind judging by a human over all six eval registers preferred the pre-rhythm-check v3.1.0 rewrites 9/0 across two runs (see `evals/blind/JUDGMENTS-human.md`, `JUDGMENTS-human-2.md`): the unevenness and performed looseness the check adds is what the gate reader discounts, and the repo's rule is that a change ships only when it beats the previous version here. The mechanical metrics, `references/rhythm.md` inventory, and eval protocol stay — uniformity remains worth measuring; the skill just no longer varies shape on its own. Step 4's "vary sentence length where the content calls for it, not by formula" guard is unchanged. No change to the 26 patterns.
