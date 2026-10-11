@@ -14,12 +14,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 PAIRS = [
-    ("essay", "essay_v310.md", "essay_v330.md"),
-    ("howto", "howto_v310.md", "howto_v330.md"),
-    ("email", "email_v310.md", "email_v330.md"),
-    ("marketing", "marketing_v310.md", "marketing_v330.md"),
-    ("review", "review_v310.md", "review_v330.md"),
-    ("technical", "technical_v310.md", "technical_v330.md"),
+    ("essay", "essay_v310.md", "essay_v360.md"),
+    ("howto", "howto_v310.md", "howto_v360.md"),
+    ("email", "email_v310.md", "email_v360.md"),
+    ("marketing", "marketing_v310.md", "marketing_v360.md"),
+    ("review", "review_v310.md", "review_v360.md"),
+    ("technical", "technical_v310.md", "technical_v360.md"),
 ]
 
 
