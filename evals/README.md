@@ -27,12 +27,20 @@ metrics. See `results/detector-crosscheck.md` for the run and the command.
 Cross-check only: its own authors measured paragraph-level ROC-AUC at 0.501,
 so it never gates a change.
 
+**4. Watch-word ratios (experimental).** `word_ratios.py` counts §12
+candidates in the AI corpus (`corpus/` + `corpus2/`) against the 11.87M-word
+human baseline (`results/oanc-sweep.json`, `masc-sweep.json`). See
+`results/word-ratios.md` — single-author AI side, so ratios are a screening
+tool until the corpus spans multiple models.
+
 ## Corpus
 
 `corpus/` holds AI-style drafts across six registers (essay, how-to, email,
 marketing, review, technical release notes). Grow toward 100–200 samples before
 trusting fine margins; 6 samples resolves only huge effects (cf. humanist's power
-analysis: ~3.6 points at n=282).
+analysis: ~3.6 points at n=282). `corpus2/` adds 36 same-register drafts
+(2026-10-11) from a single model/author — useful for coarse word-ratio
+screening, not yet for family-level claims.
 
 ## Protocol per change
 

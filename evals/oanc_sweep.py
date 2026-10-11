@@ -135,7 +135,8 @@ def main():
                 "files": word_files[w]}
             for w in WATCH_WORDS},
     }
-    out = Path(__file__).parent / "results" / "oanc-sweep.json"
+    out = Path(sys.argv[2]) if len(sys.argv) > 2 else \
+        Path(__file__).parent / "results" / "oanc-sweep.json"
     out.write_text(json.dumps(result, indent=1), encoding="utf-8")
     print(json.dumps({k: result[k] for k in
                       ("files", "docs_over_min_words", "words_total",
