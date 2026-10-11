@@ -1,5 +1,11 @@
 # Human judging run — 2026-10-10
 
+> **Correction 2026-10-11:** the recorded key was wrong (generator bug, see
+> JUDGMENTS-smoke.md). Reconstructed mapping for these three pairs: essay
+> A=v3.1.0 ✓ (as recorded), how-to A=v3.1.0 ✓, but **email A was v3.3.0** —
+> so the human's email pick was a win for **v3.3.0**, not v3.1.0. Corrected
+> run-1 tally: **v3.1.0 2 – 1 v3.3.0**.
+
 One human judge, blind to the key, after the smoke run. This is the clean
 judging the smoke run's contamination disclosure called for: judge did not
 write the rewrites and did not know which letter was which version.

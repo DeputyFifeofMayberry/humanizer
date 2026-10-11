@@ -1,5 +1,13 @@
 # Smoke judging run — 2026-10-10
 
+> **Correction 2026-10-11:** the key recorded for this run was wrong — the
+> generator hardcoded A=old, B=new regardless of the shuffle. Reconstructed
+> from the archived pair texts (`evals/reconstruct_keys.py`): the email pair
+> was actually A=v3.3.0 / B=v3.1.0, so the model's B pick on email was a win
+> for **v3.1.0**, not v3.3.0. Corrected tally: **v3.3.0 2 – 1 v3.1.0**
+> (essay and how-to to v3.3.0, email to v3.1.0). The table below preserves
+> the originally recorded (wrong) version labels.
+
 **Contamination disclosure:** the rewriter and the judge were the same model in
 the same session, and the judge knew the key. This run validates the pairing and
 tally pipeline end to end. It is NOT evidence of improvement. Cross-family or

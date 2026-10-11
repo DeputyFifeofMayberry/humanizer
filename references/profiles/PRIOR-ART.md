@@ -69,7 +69,9 @@ adopted afterwards is marked → ADOPTED.
    100, confidence interval, modern registers) is the bar our eval numbers do
    not yet meet. Counterpoint worth keeping: their catalog prescribes "mix
    short/long, fragments, questions" to fix uniformity — exactly the
-   performed looseness our human gate rejected 9/0, so our data is evidence
+   performed looseness our human gate rejected (corrected tally: 6–3 for the
+   pre-rhythm-check version across runs 1–2; see the correction note atop
+   `evals/blind/JUDGMENTS-human-3.md`), so our data is evidence
    against that specific fix.
 
 ## Commercial products (the pattern at scale)

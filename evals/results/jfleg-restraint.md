@@ -14,11 +14,14 @@ Raw numbers: `jfleg-restraint.json`.
 
 ## Results
 
+Medians corrected 2026-10-11 (even-sample medians; the first pass took the
+upper middle value — audit finding 9).
+
 | editor | n | median change | p90 | max |
 | --- | --- | --- | --- | --- |
 | human fluency edits (all) | 6,004 | **14.3%** | 36.2% | 95.4% |
-| our v3.1.0 rewrites (6 files) | 6 | 58.6% | 65.2% | 66.1% |
-| our v3.3.0 rewrites (6 files) | 6 | 78.8% | 79.9% | 85.5% |
+| our v3.1.0 rewrites (6 files) | 6 | 47.7% | 65.2% | 66.1% |
+| our v3.3.0 rewrites (6 files) | 6 | 73.1% | 79.9% | 85.5% |
 
 Per-file: `review_v310` is the most restrained (21.9%); every v3.3.0 rewrite
 changed more than its v3.1.0 counterpart; `essay_v330` rewrote 85% of tokens.
@@ -26,10 +29,12 @@ changed more than its v3.1.0 counterpart; `essay_v330` rewrote 85% of tokens.
 ## Reading
 
 1. **Minimal human editors change ~1/7 of tokens.** Even at p90 they stay under
-   37%. Our skill changes 3–4× the human median at v3.1.0 and 5× at v3.3.0.
+   37%. Our skill changes roughly 3× the human median at v3.1.0 and 5× at
+   v3.3.0.
 2. **The rhythm check made the skill touch nearly everything.** v3.3.0's median
-   edit fraction is 79% — consistent with its removal (v3.5.0) after the human
-   gate, and a quantification of "the rewrite loses the writer's text."
+   edit fraction is 73% vs v3.1.0's 48% — consistent with its removal (v3.5.0)
+   after the human gate, and a quantification of "the rewrite loses the
+   writer's text."
 3. **"Leave the rest as the writer wrote them" (step 4) is real but partial.**
    Sentence-selective editing cut the touched fraction vs a full rewrite, yet
    the skill still rewrites whole sentences that carry tells, which no
