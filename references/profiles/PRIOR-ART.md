@@ -1,7 +1,7 @@
 # Prior art: voice/style profiles for AI writing
 
 Research pass 2026-10-10, seeking examples built for this exact task (capture a
-writer's voice once, reuse it for personalized rewrites). 16 found. What we
+writer's voice once, reuse it for personalized rewrites). 17 found. What we
 adopted afterwards is marked → ADOPTED.
 
 ## In the humanizer/skill ecosystem (direct precedents)
@@ -46,6 +46,31 @@ adopted afterwards is marked → ADOPTED.
 7. **lovstudio-style-clone** (SkillsMP) — analyzes sample articles into a style
    profile (文风画像) and rewrites a target article in that style. One-shot
    profile-then-apply flow, same two-stage shape as ours.
+
+7b. **conorbronsdon/avoid-ai-writing** (MIT, 4.9k★, surveyed 2026-10-10) — the
+   largest skill in the niche and the closest in engineering discipline:
+   pattern catalog + deterministic detector (npm, GitHub Action, pre-commit,
+   MCP), register voice profiles, edit-in-place mode, and a `PROOF.md`
+   self-scan that publishes raw and exempt scores "because publishing only the
+   flattering one is the behavior this project exists to criticize." Its own
+   corpus study (875 human / 779 machine paragraphs) measured paragraph-level
+   ROC-AUC 0.501 — a coin flip — and it says so rather than quoting the
+   detector as a quality oracle. Rhythm/uniformity stays a judgment pattern,
+   never a mechanical pass, and a wall-of-text detector was reverted after it
+   misfired (documented in the v3.15 notes).
+   → ADOPTED: confirmation, not code. Their AUC measurement is independent
+   evidence for our report-only stance on `rhythm_metrics.py`; their
+   wall-of-text revert is the same move as our 3.5.0 rhythm-check removal
+   (measure, misfire, retreat, document). Candidate adoptables, unswept: their
+   AI-tool fingerprints (unfilled placeholders, chatbot citation markup, UTM
+   params — near-zero-false-positive artifact cleanup for §E) and the two
+   writer-side tests (paragraph-reshuffle immunity, treadmill effect) already
+   named in `INVESTIGATION.md`. Their claim gate for quoting any rate (n ≥
+   100, confidence interval, modern registers) is the bar our eval numbers do
+   not yet meet. Counterpoint worth keeping: their catalog prescribes "mix
+   short/long, fragments, questions" to fix uniformity — exactly the
+   performed looseness our human gate rejected 9/0, so our data is evidence
+   against that specific fix.
 
 ## Commercial products (the pattern at scale)
 
