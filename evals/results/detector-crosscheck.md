@@ -40,3 +40,13 @@ Reading:
 4. **Never a gate.** The detector's own authors measured paragraph-level
    ROC-AUC 0.501 (a coin flip) and publish it (`PROOF.md` in their repo). It
    informs; the human gate decides.
+
+## Follow-up: "optimize" swept and rejected — 2026-10-11
+
+The Tier-1 residue in both technical rewrites is "optimize(s)". Swept over the
+human-prose corpus: 9 hits, all in RFC technical registers (T06, T11, T12),
+all in engineering senses ("optimizes the allocation of..."), none figurative.
+That matches the §12 pattern already used for `robust` and `gate`: figurative
+uses are tells, technical uses are the correct word. **Not adopted** — in the
+one place the detector flagged it, our skill would (correctly) keep it.
+
