@@ -49,18 +49,23 @@ instead of asserted. `balanced_clause_share > 0.5` flags exactly one file
 
 ## Watch words: human rates (per 100k words)
 
+Measured with the shared boundary matcher in `evals/watch_words.py` — the
+same list and rule the AI-side ratios use (unified after audit finding 8;
+earlier rates undercounted punctuation-adjacent hits).
+
 Strong markers — near-absent in 11.5M words of human prose, safe to weigh
-heavily in §12: `unlocking` 0.04, `tapestry` 0.09, `showcases` 0.10, `delve`
-0.13, `garner` 0.14, `seamless` 0.13, `seamlessly` 0.17, `leveraging` 0.17.
+heavily in §12: `unlocking` 0.03, `tapestry` 0.15, `showcases` 0.10, `delve`
+0.15, `garner` 0.19, `seamless` 0.16, `seamlessly` 0.20, `leveraging` 0.16.
 
 Weak markers — common in ordinary human writing, confirming §12's "weight the
-rest lower": `enhance` 3.6, `crucial` 3.4, `landscape` 2.2, `foster` 2.2,
-`robust` 2.2, `highlight` 1.4, `quietly` 1.0, `enduring` 0.9, `align` 0.9,
-`testament` 0.8.
+rest lower": `enhance` 3.5, `crucial` 3.6, `landscape` 3.3, `foster` 2.9,
+`robust` 2.6, `highlight` 1.7, `quietly` 1.3, `enduring` 0.9, `align` 0.9,
+`testament` 1.0.
 
-In between — real but register-dependent: `optimize` 0.6 (all technical
-registers; see `detector-crosscheck.md`), `pivotal` 0.6, `leverage` 0.5,
-`meticulous` 0.3, `vibrant` 0.6, `intricate` 0.6.
+In between — real but register-dependent: `comprehensive` 5.2 (see
+`word-ratios.md` — the AI-side ratio is 12×), `optimize` 0.6 (all technical
+registers; see `detector-crosscheck.md`), `pivotal` 0.6, `leverage` 0.7,
+`meticulous` 0.3, `vibrant` 0.7, `intricate` 0.7.
 
 To turn these into discrimination ratios we need the AI-side rate over a large
 generated corpus (our AI corpus is 6 drafts) — the remaining half of the

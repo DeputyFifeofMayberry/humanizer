@@ -19,20 +19,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from rhythm_metrics import measure
+from watch_words import WATCH_WORDS, count_hits
 
 MIN_WORDS = 200
-WATCH_WORDS = [
-    # §12 list + the external detector's Tier-1 candidates
-    "delve", "tapestry", "garner", "meticulous", "meticulously", "showcase",
-    "showcases", "testament", "underscore", "underscores", "pivotal",
-    "crucial", "robust", "seamless", "seamlessly", "leverage", "leveraging",
-    "optimize", "optimizing", "landscape", "interplay", "intricate",
-    "enhance", "enhancing", "vibrant", "enduring", "quietly", "bolster",
-    "align", "highlight", "foster", "realm", "navigate", "unlock", "unlocking",
-]
 
-CV_FLOOR_SENT = 0.48
-CV_FLOOR_PARA = 0.57
+CV_FLOOR_SENT = 0.44
+CV_FLOOR_PARA = 0.40
 BALANCED_CEIL = 0.5
 
 
@@ -75,14 +67,14 @@ def main():
 
     for i, f in enumerate(files):
         text = f.read_text(encoding="utf-8", errors="replace")
-        low = text.lower().split()
-        words += len(low)
+        low = text.lower()
+        words += len(low.split())
         seen = set()
-        for w in low:
-            if w in word_hits:
-                word_hits[w] += 1
-                if w not in seen:
-                    seen.add(w)
+        for w in WATCH_WORDS:
+            hits = count_hits(w, low)
+            if hits:
+                word_hits[w] += hits
+                seen.add(w)
         for w in seen:
             word_files[w] += 1
         genre = "/".join(f.relative_to(corpus).parts[:2])

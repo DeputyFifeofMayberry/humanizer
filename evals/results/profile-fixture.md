@@ -22,17 +22,31 @@ python evals/check_profile.py --source evals/corpus/ai_email_vendor.md \
 ## Checks
 
 1. **Claims preserved (mechanical, committed as `check_profile.py`).** Every
-   number and dollar amount in the source appears in the rewrite: 23%, 15%,
-   $400k, twelve → four, November 1st, Thursday. Run it — PASS.
-2. **Exemplar leakage (mechanical).** No run of 3+ distinctive words copied
-   from the profile's exemplar passages (subcontractor numbers, steel decking,
-   RFI) appears in the rewrite. Run it — PASS.
+   numeric token in the source — 23%, 15%, $400,000, November 1st (as "1st") —
+   plus the listed word claims (twelve, four, Thursday) appears in the
+   rewrite. Run it — PASS, exit 0.
+2. **Exemplar leakage (mechanical).** Ordered word-sequence match against the
+   joined exemplar passages; longest shared run must stay under 3 words.
+   Run it — PASS.
 3. **Style shift (human, this fixture's worked example).** The rewrite reads
    in the profile's voice — "Phase one wrapped up", "so costs are down",
-   "Need you at Thursday's standup" — rather than the source's voice
+   "Details at Thursday's standup" — rather than the source's voice
    ("I'm thrilled to announce", "significant milestone"). Verified by
-   inspection against the profile's style summary and voice bands; automated
-   style scoring would need a judged corpus and stays out of scope.
+   inspection against the profile's style summary and voice bands.
+
+## Correction history
+
+The first version of this fixture claimed preservation while the rewrite said
+"about $400,000" (source: "over $400,000"), invented procurement "chasing
+twelve invoices," and added an attendance request to the standup line — and
+the original checker would have passed it anyway (substring matching accepted
+"123%" for "23%", word-numbers and dates were not checked, and a failed run
+exited 0). All three additions were removed, the checker was rebuilt with the
+audit's reproductions as tests, and this report now claims only what the
+checker measures. Residual limitation, stated plainly: the checker verifies
+listed claims and copied phrases; it cannot detect contextual additions —
+that remains a claim-by-claim human review step (see
+`results/run2-claim-correction.md`).
 
 ## What this fixture proves
 

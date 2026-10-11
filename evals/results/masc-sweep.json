@@ -1186,9 +1186,9 @@
   }
  },
  "floors": {
-  "sentence_len_cv_below": 18,
-  "para_word_cv_below": 19,
-  "below_both": 3,
+  "sentence_len_cv_below": 10,
+  "para_word_cv_below": 4,
+  "below_both": 0,
   "balanced_clause_over": 3
  },
  "rates": {
@@ -1196,17 +1196,82 @@
   "triads_per_100w": 0.1575
  },
  "watch_words": {
+  "align": {
+   "hits": 1,
+   "per_100k": 0.264,
+   "files": 1
+  },
+  "bolster": {
+   "hits": 1,
+   "per_100k": 0.264,
+   "files": 1
+  },
+  "comprehensive": {
+   "hits": 12,
+   "per_100k": 3.167,
+   "files": 10
+  },
+  "crucial": {
+   "hits": 10,
+   "per_100k": 2.639,
+   "files": 9
+  },
   "delve": {
    "hits": 2,
    "per_100k": 0.528,
    "files": 2
   },
-  "tapestry": {
-   "hits": 1,
-   "per_100k": 0.264,
-   "files": 1
+  "enduring": {
+   "hits": 6,
+   "per_100k": 1.583,
+   "files": 6
+  },
+  "enhance": {
+   "hits": 6,
+   "per_100k": 1.583,
+   "files": 6
+  },
+  "enhancing": {
+   "hits": 0,
+   "per_100k": 0.0,
+   "files": 0
+  },
+  "foster": {
+   "hits": 9,
+   "per_100k": 2.375,
+   "files": 8
   },
   "garner": {
+   "hits": 0,
+   "per_100k": 0.0,
+   "files": 0
+  },
+  "highlight": {
+   "hits": 5,
+   "per_100k": 1.319,
+   "files": 5
+  },
+  "interplay": {
+   "hits": 2,
+   "per_100k": 0.528,
+   "files": 1
+  },
+  "intricate": {
+   "hits": 2,
+   "per_100k": 0.528,
+   "files": 2
+  },
+  "landscape": {
+   "hits": 8,
+   "per_100k": 2.111,
+   "files": 6
+  },
+  "leverage": {
+   "hits": 7,
+   "per_100k": 1.847,
+   "files": 2
+  },
+  "leveraging": {
    "hits": 0,
    "per_100k": 0.0,
    "files": 0
@@ -1221,65 +1286,10 @@
    "per_100k": 0.0,
    "files": 0
   },
-  "showcase": {
-   "hits": 0,
-   "per_100k": 0.0,
-   "files": 0
-  },
-  "showcases": {
-   "hits": 1,
-   "per_100k": 0.264,
-   "files": 1
-  },
-  "testament": {
-   "hits": 2,
-   "per_100k": 0.528,
-   "files": 2
-  },
-  "underscore": {
-   "hits": 0,
-   "per_100k": 0.0,
-   "files": 0
-  },
-  "underscores": {
-   "hits": 0,
-   "per_100k": 0.0,
-   "files": 0
-  },
-  "pivotal": {
-   "hits": 4,
-   "per_100k": 1.056,
-   "files": 4
-  },
-  "crucial": {
-   "hits": 9,
-   "per_100k": 2.375,
-   "files": 8
-  },
-  "robust": {
+  "navigate": {
    "hits": 6,
    "per_100k": 1.583,
-   "files": 5
-  },
-  "seamless": {
-   "hits": 1,
-   "per_100k": 0.264,
-   "files": 1
-  },
-  "seamlessly": {
-   "hits": 4,
-   "per_100k": 1.056,
-   "files": 4
-  },
-  "leverage": {
-   "hits": 5,
-   "per_100k": 1.319,
    "files": 2
-  },
-  "leveraging": {
-   "hits": 0,
-   "per_100k": 0.0,
-   "files": 0
   },
   "optimize": {
    "hits": 0,
@@ -1291,27 +1301,72 @@
    "per_100k": 0.264,
    "files": 1
   },
-  "landscape": {
+  "pivotal": {
+   "hits": 4,
+   "per_100k": 1.056,
+   "files": 4
+  },
+  "quietly": {
    "hits": 7,
    "per_100k": 1.847,
    "files": 5
   },
-  "interplay": {
-   "hits": 2,
-   "per_100k": 0.528,
+  "realm": {
+   "hits": 13,
+   "per_100k": 3.43,
+   "files": 11
+  },
+  "robust": {
+   "hits": 7,
+   "per_100k": 1.847,
+   "files": 6
+  },
+  "seamless": {
+   "hits": 1,
+   "per_100k": 0.264,
    "files": 1
   },
-  "intricate": {
+  "seamlessly": {
+   "hits": 4,
+   "per_100k": 1.056,
+   "files": 4
+  },
+  "showcase": {
+   "hits": 0,
+   "per_100k": 0.0,
+   "files": 0
+  },
+  "showcases": {
+   "hits": 1,
+   "per_100k": 0.264,
+   "files": 1
+  },
+  "tapestry": {
+   "hits": 1,
+   "per_100k": 0.264,
+   "files": 1
+  },
+  "testament": {
+   "hits": 3,
+   "per_100k": 0.792,
+   "files": 3
+  },
+  "underscore": {
+   "hits": 0,
+   "per_100k": 0.0,
+   "files": 0
+  },
+  "underscores": {
+   "hits": 0,
+   "per_100k": 0.0,
+   "files": 0
+  },
+  "unlock": {
    "hits": 2,
    "per_100k": 0.528,
    "files": 2
   },
-  "enhance": {
-   "hits": 6,
-   "per_100k": 1.583,
-   "files": 6
-  },
-  "enhancing": {
+  "unlocking": {
    "hits": 0,
    "per_100k": 0.0,
    "files": 0
@@ -1320,56 +1375,6 @@
    "hits": 4,
    "per_100k": 1.056,
    "files": 4
-  },
-  "enduring": {
-   "hits": 5,
-   "per_100k": 1.319,
-   "files": 5
-  },
-  "quietly": {
-   "hits": 5,
-   "per_100k": 1.319,
-   "files": 5
-  },
-  "bolster": {
-   "hits": 1,
-   "per_100k": 0.264,
-   "files": 1
-  },
-  "align": {
-   "hits": 1,
-   "per_100k": 0.264,
-   "files": 1
-  },
-  "highlight": {
-   "hits": 4,
-   "per_100k": 1.056,
-   "files": 4
-  },
-  "foster": {
-   "hits": 7,
-   "per_100k": 1.847,
-   "files": 6
-  },
-  "realm": {
-   "hits": 6,
-   "per_100k": 1.583,
-   "files": 6
-  },
-  "navigate": {
-   "hits": 6,
-   "per_100k": 1.583,
-   "files": 2
-  },
-  "unlock": {
-   "hits": 1,
-   "per_100k": 0.264,
-   "files": 1
-  },
-  "unlocking": {
-   "hits": 0,
-   "per_100k": 0.0,
-   "files": 0
   }
  }
 }
