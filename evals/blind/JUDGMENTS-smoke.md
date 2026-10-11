@@ -14,3 +14,10 @@ Method: quality-only, forced choice, confidence 1-5, one quoted reason.
 | email-94e6fab3 | B | 4 | A's "This happened because of your flexibility" is a floating tribute; B names what the flexibility did ("without service gaps") |
 
 Tally vs key (see tally in results/): B = v3.3.0 in all three.
+
+**Correction (found 2026-10-10, after human run):** the email row is
+self-contradictory — it picks B but quotes B's floating tribute
+("This happened because of your flexibility") as A's and A's concrete line
+("without service gaps") as B's. The quotes are swapped relative to the pair
+file, so the recorded pick for that row is unreliable. The essay and howto
+rows match their pair files.
