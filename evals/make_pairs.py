@@ -17,6 +17,9 @@ PAIRS = [
     ("essay", "essay_v310.md", "essay_v330.md"),
     ("howto", "howto_v310.md", "howto_v330.md"),
     ("email", "email_v310.md", "email_v330.md"),
+    ("marketing", "marketing_v310.md", "marketing_v330.md"),
+    ("review", "review_v310.md", "review_v330.md"),
+    ("technical", "technical_v310.md", "technical_v330.md"),
 ]
 
 
