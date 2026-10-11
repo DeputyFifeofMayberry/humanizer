@@ -21,6 +21,12 @@ python evals/rhythm_metrics.py --json evals/corpus/*.md > results.json
 **2. Blind pairwise judging.** The real gate. Mechanical proxies can improve
 while prose gets worse; only preference data decides.
 
+**3. External detector cross-check (optional).** `avoid-ai-writing-detector`
+(npm, MIT) scores lexical surface patterns — the complement to our structural
+metrics. See `results/detector-crosscheck.md` for the run and the command.
+Cross-check only: its own authors measured paragraph-level ROC-AUC at 0.501,
+so it never gates a change.
+
 ## Corpus
 
 `corpus/` holds AI-style drafts across six registers (essay, how-to, email,
