@@ -40,8 +40,11 @@ should land near these bands.>
 ## Building one
 
 Ask for 5-10 samples of the writer's real, unedited writing in that context
-(sent messages, drafts, posts). Extract the style summary and exemplars; never
-copy the samples' facts, names, or dates into the profile. Run
+(sent messages, drafts, posts). Extract the style summary and exemplars. The
+Exemplars section holds short verbatim excerpts, authorized by the writer —
+they may naturally contain facts, names, and dates. What never happens is
+those facts traveling: exemplar content must not appear in a rewrite of
+someone else's text. Keep private samples out of git. Run
 `evals/rhythm_metrics.py` over the samples and record the bands. Save, name the
 file for the context, done. A profile with fewer than 3 samples says so at the
 top.
@@ -59,8 +62,9 @@ Three rules from prior art (full survey in `PRIOR-ART.md`):
 - **Rebuild, don't append.** When the corpus grows, rebuild the profile from
   all of it rather than patching the oldest summary.
 - **Exemplars stay verbatim.** A summary alone drifts generic; verbatim
-  excerpts are what keep the rewrite honest, which is why voice-fidelity
-  products keep both.
+  excerpts are what keep the rewrite honest (authorized by the writer, so
+  their facts may sit in the profile — they just never travel into rewrites
+  of other text), which is why voice-fidelity products keep both.
 
 ## Using one at rewrite time
 
