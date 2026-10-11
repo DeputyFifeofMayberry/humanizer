@@ -50,7 +50,14 @@ def quantiles(values):
 
 def main():
     corpus = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(r"Y:\_refs\oanc")
+    if not corpus.is_dir():
+        print(f"corpus directory not found: {corpus}; nothing written", file=sys.stderr)
+        sys.exit(2)
     files = sorted(corpus.rglob("*.txt"))
+    if not files:
+        print(f"no .txt files under {corpus}; refusing to overwrite the "
+              f"baseline with empty results", file=sys.stderr)
+        sys.exit(2)
     per_metric = {k: [] for k in
                   ("sentence_len_cv", "para_word_cv", "contraction_rate",
                    "balanced_clause_share", "colons", "punchy_closers",

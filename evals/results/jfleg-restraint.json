@@ -26,14 +26,14 @@
   "v310": {
    "n": 6,
    "mean": 0.4685,
-   "median": 0.5857,
+   "median": 0.4767,
    "p90": 0.6519,
    "max": 0.6612
   },
   "v330": {
    "n": 6,
    "mean": 0.7314,
-   "median": 0.7884,
+   "median": 0.7308,
    "p90": 0.7994,
    "max": 0.8547
   }
@@ -52,5 +52,6 @@
   "technical_v310": 0.3676,
   "technical_v330": 0.6733
  },
+ "median_note": "statistics.median; even-sized samples average the two middle values",
  "caveat": "fluency fixing of learner text is not de-AI-ing; reference line only"
 }

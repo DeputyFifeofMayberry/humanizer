@@ -28,6 +28,24 @@ TRIAD = re.compile(r"\b[\w'-]+,\s+[\w'-]+,?\s+and\s+[\w'-]+", re.IGNORECASE)
 FIRST_WORDS = re.compile(r"[A-Za-z']+")
 
 
+FENCE = re.compile(r"^ {0,3}(?:```|~~~)")
+
+
+def strip_fences(text):
+    """Remove fenced code blocks (``` or ~~~) before any paragraph splitting,
+    so blank lines inside a fence cannot leak code into prose metrics. An
+    unclosed fence removes the rest of the text, matching Markdown rendering."""
+    out = []
+    in_fence = False
+    for line in text.splitlines():
+        if FENCE.match(line):
+            in_fence = not in_fence
+            continue
+        if not in_fence:
+            out.append(line)
+    return "\n".join(out)
+
+
 def prose_blocks(text):
     """(kind, content) for prose paragraphs only; kind is 'p' or 'h' (heading)."""
     blocks = []
@@ -89,7 +107,7 @@ def balanced_clauses(sents):
 
 
 def measure(text):
-    blocks = prose_blocks(text)
+    blocks = prose_blocks(strip_fences(text))
     paras = [b for k, b in blocks if k == "p"]
     heads = [b for k, b in blocks if k == "h"]
 
@@ -174,13 +192,26 @@ def main():
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
+    files = []
+    for arg in args.files:
+        p = Path(arg)
+        if p.is_file():
+            files.append(p)
+        elif any(ch in arg for ch in "*?["):
+            # expand wildcards ourselves: PowerShell and cmd do not expand
+            # them for native commands, so the documented glob usage works here
+            files.extend(sorted(Path().glob(arg)))
+        else:
+            print(f"skip (not a file): {arg}", file=sys.stderr)
+    files = sorted(set(files))
+    if not files:
+        print("no input files matched; wildcards are expanded by this script, "
+              "e.g. python evals/rhythm_metrics.py 'evals/corpus/*.md'",
+              file=sys.stderr)
+        sys.exit(2)
     results = {}
-    for f in args.files:
-        p = Path(f)
-        if not p.is_file():
-            print(f"skip (not a file): {f}", file=sys.stderr)
-            continue
-        results[str(p)] = measure(p.read_text(encoding="utf-8"))
+    for f in files:
+        results[str(f)] = measure(f.read_text(encoding="utf-8"))
 
     if args.json:
         print(json.dumps(results, indent=2))

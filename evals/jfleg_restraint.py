@@ -38,12 +38,17 @@ def edit_fraction(a, b):
 def dist(values):
     s = sorted(values)
     return {"n": len(s), "mean": round(statistics.mean(s), 4),
-            "median": round(s[len(s) // 2], 4),
+            "median": round(statistics.median(s), 4),
             "p90": round(s[int(0.9 * (len(s) - 1))], 4),
             "max": s[-1]}
 
 
 def main():
+    if "--selftest" in sys.argv:
+        d = dist([1, 2, 3, 4])
+        assert d["median"] == 2.5, f"even-sample median wrong: {d}"
+        print("jfleg_restraint selftest: OK (even-sample median averages the middle pair)")
+        return
     jfleg = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(r"Y:\_refs\jfleg")
     root = Path(__file__).parent
     human = {"dev": [], "test": []}
@@ -73,6 +78,7 @@ def main():
                 "\n".join((root / "rewrite" / f"{name}_{v}.md")
                           .read_text(encoding="utf-8").splitlines()[1:]).strip())
             for name in PAIRS for v in ("v310", "v330")},
+        "median_note": "statistics.median; even-sized samples average the two middle values",
         "caveat": "fluency fixing of learner text is not de-AI-ing; reference line only",
     }
     out = root / "results" / "jfleg-restraint.json"

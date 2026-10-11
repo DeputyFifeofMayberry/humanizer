@@ -43,4 +43,26 @@ assert m2["contraction_rate"] >= 0.1, f"contractions missed: {m2}"
 assert measure("")["sentences"] == 0
 assert measure("```python\ncode with. periods\n```")["sentences"] == 0
 
+# Audit reproduction: a blank line inside a fence used to leak code into
+# prose metrics. The fence must be removed whole, and trailing prose counted.
+FENCED = """\
+```text
+def f():
+    return 42.
+
+the code continues. After a blank line. With periods.
+```
+
+This paragraph follows the fence and counts. A short closer.
+"""
+m3 = measure(FENCED)
+assert m3["sentences"] == 2, f"fence leaked into prose metrics: {m3}"
+assert m3["words"] == 10, f"fence words leaked: {m3}"
+
+# Unclosed fence swallows the rest of the text, as Markdown renders it
+assert measure("Prose first.\n\n```\ncode.\n\nmore code.")["sentences"] == 1
+
+# Tilde fences behave the same
+assert measure("~~~\ncode. with. periods.\n\nblank.\n~~~\n\nProse. Here.")["sentences"] == 2
+
 print("test_rhythm_metrics: all assertions passed")
