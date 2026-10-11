@@ -1,14 +1,21 @@
 """Freeze and verify blind-run artifacts.
 
-    python evals/freeze_run.py --name run3 --of evals/blind evals/rewrite evals/results/v3.6.0-rewrites.json
+    python evals/freeze_run.py --name run3 --of evals/blind evals/rewrite \
+        evals/corpus evals/results/v3.6.0-rewrites.json
     python evals/freeze_run.py --verify evals/results/manifests/run3.json
 
 `--of` hashes every file under the given paths (recursively) into a manifest
 under evals/results/manifests/<name>.json. `--verify` re-hashes and reports
-any file whose content changed since the manifest was written — so judged
-pair text and later-measured rewrite text can never silently diverge again
-(audit finding 2: run 3's pairs were judged, then three rewrite files were
-edited, so the metrics described different text than the judge read).
+any file whose content changed since the manifest was written — so the source
+corpus, judged pair text, keys, and later-measured rewrite text can never
+silently diverge again (audit finding 2: run 3's pairs were judged, then
+three rewrite files were edited, so the metrics described different text than
+the judge read).
+
+Hashes cover LF-normalized content (CRLF and lone CR become LF), so
+verification is independent of the checkout's line-ending configuration; a
+line-ending-only edit is not drift. Missing inputs and empty manifests are
+hard errors: freezing nothing must not look like evidence.
 """
 
 import hashlib
@@ -20,7 +27,8 @@ ROOT = Path(__file__).resolve().parent.parent  # repo root
 
 
 def sha256(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    raw = Path(path).read_bytes()
+    return hashlib.sha256(raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n")).hexdigest()
 
 
 def collect(paths):
@@ -34,7 +42,12 @@ def collect(paths):
                 if f.is_file() and "__pycache__" not in f.parts:
                     manifest[str(f.relative_to(ROOT)).replace("\\", "/")] = sha256(f)
         else:
-            print(f"skip (missing): {raw}", file=sys.stderr)
+            print(f"error (missing input): {raw}", file=sys.stderr)
+            sys.exit(1)
+    if not manifest:
+        print("error: nothing frozen; refusing to write an empty manifest",
+              file=sys.stderr)
+        sys.exit(1)
     return manifest
 
 
@@ -42,6 +55,9 @@ def main():
     if "--verify" in sys.argv:
         mpath = Path(sys.argv[sys.argv.index("--verify") + 1]).resolve()
         manifest = json.loads(mpath.read_text(encoding="utf-8"))
+        if not manifest:
+            print(f"error: empty manifest: {mpath}", file=sys.stderr)
+            sys.exit(1)
         drift = missing = 0
         for rel, digest in sorted(manifest.items()):
             p = ROOT / rel

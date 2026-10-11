@@ -9,7 +9,8 @@ retroactively to the v3.3.0 rewrite files found three invented specifics:
   block, you'll hear it there first" — neither in `ai_email_vendor.md`.
 
 These were rewrite-side additions, not source claims. Consequences, honestly
-stated: the run-2 human preference data (6/0 for v3.1.0) compared a compliant
+stated: the run-2 human preference data (recorded 6/0 under the wrong key;
+5–1 after correction) compared a compliant
 v3.1.0 set against a partially non-compliant v3.3.0 set, and neither the model
 judge nor the human caught the additions. The style-preference verdict stands
 as preference data; it is no longer clean evidence about v3.3.0's *protocol*

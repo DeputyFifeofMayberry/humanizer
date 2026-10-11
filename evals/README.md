@@ -70,6 +70,12 @@ screening, not yet for family-level claims.
    prose (humanist's `fp-corpus/` works) and require ~zero false positives.
    Do not encode: performed hedging, self-answered questions, typography
    (measured discrimination ratios 0.89 / 0.00 / 0.61 — all misfire).
+8. **Freeze the run.** After judging, freeze source, rewrites, pairs, key,
+   judgments, and metrics into a content manifest and keep it green:
+   `python evals/freeze_run.py --name <run> --of evals/blind evals/rewrite
+   evals/corpus evals/results/<metrics>.json`, verified in CI (`--verify`).
+   A legitimate correction to frozen evidence regenerates the manifest and
+   says so in the changelog. Hashes are line-ending independent (LF-normalized).
 
 ## Known limits
 

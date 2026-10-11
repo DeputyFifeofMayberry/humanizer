@@ -16,15 +16,16 @@ style, without leaking the profile's content or dropping the source's claims?
 ```
 python evals/check_profile.py --source evals/corpus/ai_email_vendor.md \
   --rewrite evals/rewrite/profile_email_v360.md \
-  --profile references/profiles/example-site-updates.md
+  --profile references/profiles/example-site-updates.md \
+  --claims "twelve|four|Thursday|November 1st"
 ```
 
 ## Checks
 
 1. **Claims preserved (mechanical, committed as `check_profile.py`).** Every
-   numeric token in the source — 23%, 15%, $400,000, November 1st (as "1st") —
-   plus the listed word claims (twelve, four, Thursday) appears in the
-   rewrite. Run it — PASS, exit 0.
+   numeric token in the source — 23%, 15%, $400,000, 1st — plus the listed
+   word claims (twelve, four, Thursday, November 1st) appears in the
+   rewrite as a complete token. Run it — PASS, exit 0.
 2. **Exemplar leakage (mechanical).** Ordered word-sequence match against the
    joined exemplar passages; longest shared run must stay under 3 words.
    Run it — PASS.

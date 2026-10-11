@@ -5,7 +5,7 @@
 > A=v3.3.0** — the judge's how-to pick was a win for **v3.3.0**, not v3.1.0.
 > The other five pairs were keyed correctly. Corrected run-2 tally:
 > **v3.1.0 5 – 1 v3.3.0** (not 6–0), and the cumulative gate across runs 1–2
-> is **6–3 for v3.1.0**, not 9–0.
+> is **7–2 for v3.1.0**, not 9–0.
 
 Same judge as run 1 (`JUDGMENTS-human.md`), now over all six registers. Blind
 to the key; judged from the pair files only. Disclosure: the pairing script
@@ -30,7 +30,7 @@ judge endorsed run 1's basis ("I still like A", run 1 reason: cleaner/tidier).
 Tally vs key: A = v3.1.0 in all six. **v3.1.0 6/0 over v3.3.0.**
 
 Cumulative human gate across both runs: **v3.1.0 9/0 over v3.3.0** (p ≈ 0.002
-under a 50/50 null — superseded by the correction above: 6–3, and the p-value
+under a 50/50 null — superseded by the correction above: 7–2, and the p-value
 is not meaningful at a key error rate of 1-in-3 pairs). Caveats: one judge,
 both runs, correlated picks; judge's
 stated taste is "cleaner/tidier", which is the exact axis the rhythm check

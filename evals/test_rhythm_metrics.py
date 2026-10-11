@@ -65,4 +65,32 @@ assert measure("Prose first.\n\n```\ncode.\n\nmore code.")["sentences"] == 1
 # Tilde fences behave the same
 assert measure("~~~\ncode. with. periods.\n\nblank.\n~~~\n\nProse. Here.")["sentences"] == 2
 
+# Audit reproduction: a four-backtick fence containing triple-backtick lines.
+# The inner ``` lines are content, not closers; only ```` closes the block.
+FOUR = """\
+````markdown
+# heading. with periods.
+```python
+def f():
+    return 42.
+```
+still code. after the inner fence.
+````
+
+Prose after the four-backtick block. Counts here.
+"""
+m4 = measure(FOUR)
+assert m4["sentences"] == 2, f"4-backtick fence leaked into prose metrics: {m4}"
+assert m4["words"] == 7, f"4-backtick fence words leaked: {m4}"
+
+# A ``` line must not close a ~~~ fence, and later prose must survive it
+MIXED = """\
+~~~text
+```not a closing fence. code. continues.
+~~~
+
+Prose. Here.
+"""
+assert measure(MIXED)["sentences"] == 2, "mixed delimiters mis-parsed"
+
 print("test_rhythm_metrics: all assertions passed")

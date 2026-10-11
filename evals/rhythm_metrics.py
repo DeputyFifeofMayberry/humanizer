@@ -28,21 +28,33 @@ TRIAD = re.compile(r"\b[\w'-]+,\s+[\w'-]+,?\s+and\s+[\w'-]+", re.IGNORECASE)
 FIRST_WORDS = re.compile(r"[A-Za-z']+")
 
 
-FENCE = re.compile(r"^ {0,3}(?:```|~~~)")
+FENCE_OPEN = re.compile(r"^ {0,3}(`{3,}|~{3,})")
 
 
 def strip_fences(text):
     """Remove fenced code blocks (``` or ~~~) before any paragraph splitting,
-    so blank lines inside a fence cannot leak code into prose metrics. An
-    unclosed fence removes the rest of the text, matching Markdown rendering."""
+    so blank lines inside a fence cannot leak code into prose metrics. The
+    closing fence must repeat the opening delimiter's character, be at least
+    as long, and stand alone (CommonMark), so a four-backtick block survives
+    an inner ``` line. An unclosed fence removes the rest of the text,
+    matching Markdown rendering."""
     out = []
-    in_fence = False
+    opener = None  # (fence character, length) of the open fence
     for line in text.splitlines():
-        if FENCE.match(line):
-            in_fence = not in_fence
+        if opener is None:
+            m = FENCE_OPEN.match(line)
+            if m:
+                opener = (m.group(1)[0], len(m.group(1)))
+            else:
+                out.append(line)
             continue
-        if not in_fence:
-            out.append(line)
+        fence_ch, fence_len = opener
+        indented = line.lstrip(" ")
+        leading = len(indented) - len(indented.lstrip(fence_ch))
+        if (len(line) - len(indented)) <= 3 and leading >= fence_len \
+                and not indented.lstrip(fence_ch).strip():
+            opener = None
+        # fence content lines are dropped whether or not this one closes it
     return "\n".join(out)
 
 

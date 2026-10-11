@@ -23,6 +23,8 @@ jobs:
           python evals/make_pairs.py --selftest
           python evals/check_profile.py --selftest
           python evals/jfleg_restraint.py --selftest
+      - name: Frozen run-3 manifest verification
+        run: python evals/freeze_run.py --verify evals/results/manifests/run3.json
       - name: Skill discovery (agentskills CLI)
         run: npx --yes skills add . --list
       # `claude plugin validate .` needs the Claude CLI and runs as a local

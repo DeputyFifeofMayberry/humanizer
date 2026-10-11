@@ -10,8 +10,8 @@
 > (`evals/reconstruct_keys.py`, `results/key-reconstruction.json`): essay
 > A=v3.6.0, how-to A=v3.6.0 (pre-edit), email A=v3.1.0, marketing A=v3.1.0,
 > review A=v3.1.0, technical A=v3.1.0. Corrected winners against the judge's
-> picks (B, B, B, A, A, A): **v3.1.0 4 – 2 v3.6.0** — v3.6.0 won email and
-> technical only. The gate obligation for v3.6.0 is **not** met; the changes
+> picks (B, B, B, A, A, A): **v3.1.0 5 – 1 v3.6.0** — v3.6.0 won email
+> only. The gate obligation for v3.6.0 is **not** met; the changes
 > are gate-pending a clean re-judge (see 3.6.1 changelog). The "prior-defying
 > wins" analysis below is withdrawn.
 
@@ -32,11 +32,11 @@ correction above, the recorded key does not reflect the actual pair contents.
 | email-9c9edf62 | B | **v3.6.0** |
 | marketing-8f89d7ec | A | **v3.1.0** (pre-edit text judged) |
 | review-0fc940ad | A | **v3.1.0** (pre-edit text judged) |
-| technical-a8c0f135 | A | **v3.6.0** |
+| technical-a8c0f135 | A | **v3.1.0** |
 
-**Corrected result: v3.1.0 4 – 2 v3.6.0.** The originally recorded 3–3 and
+**Corrected result: v3.1.0 5 – 1 v3.6.0.** The originally recorded 3–3 and
 the "prior-defying wins" framing were artifacts of the wrong key; under the
-true mapping, v3.6.0 wins email and technical only.
+true mapping, v3.6.0 wins email only.
 
 No reasons were solicited per pick this run; the judge's standing taste
 statement from runs 1–2 is "cleaner/tidier."
@@ -44,14 +44,13 @@ statement from runs 1–2 is "cleaner/tidier."
 ## Verdict (superseded by the correction above)
 
 1. **The v3.6.0 gate obligation is not met.** Under the corrected key,
-   v3.6.0 lost this run 4–2, and three of the six pairs judged pre-edit text
+   v3.6.0 lost this run 5–1, and three of the six pairs judged pre-edit text
    that no longer exists on disk. The v3.6.0 changes stay in the skill as
    gate-pending candidates; a clean re-judge — fixed keys, frozen artifacts,
    judge not previously exposed to tallies — decides whether they stay.
 2. **marketing, review, technical, essay, how-to all went to v3.1.0.** The
-   only v3.6.0 wins were email and technical, and technical's pair text was
-   not the edited file. Whatever the cause, the stripped v3.6.0 style did not
-   beat the baseline here.
+   only v3.6.0 win was email. Whatever the cause, the stripped v3.6.0 style
+   did not beat the baseline here.
 3. **Process fixes owed (all now in place):** key generation records the
    actual shuffle (`make_pairs.py` self-test), run artifacts are frozen with
    content hashes (`freeze_run.py`), and tallies are withheld from the judge
