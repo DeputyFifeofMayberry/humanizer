@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Evals: added a blinded pair pipeline (`evals/make_pairs.py`, hidden key in `evals/blind/key.json`) and ran a smoke judging pass. The smoke run was self-judged — the same model wrote the rewrites and picked the winner, knowing the key — so it validates the plumbing, not the skill.
+- Voice profiles: surveyed 16 prior-art voice/style systems in `references/profiles/PRIOR-ART.md` and folded the adopted lessons into `references/profiles/README.md`: a sample pasted into the request outranks a saved profile, measured bands belong in the profile format, exemplars stay verbatim, only prose the writer owns or published gets profiled, and a grown corpus means rebuilding the profile, not appending.
+- Evidence correction for the 3.3.0 rhythm check: clean blind judging by a human who did not write the rewrites and did not know the key preferred v3.1.0 over v3.3.0 in all three pairs ("cleaner/tidier") — the opposite of the self-judged smoke result. At three pairs and one judge this does not revert 3.3.0, but the rhythm check's benefit is unproven on the human gate, and nothing should build on it until a larger human-judged run says otherwise.
+
 ## 3.4.0
 
 - Voice profiles: writing samples can now be saved under `references/profiles/` and reused across rewrites instead of pasted per request. A profile counts as a writing sample at the same strength, with two limits that always hold: style carries over, facts do not, and the profile never outranks the no-fabrication rule. Building and maintenance rules in `references/profiles/README.md`; corrections the user makes to a rewrite update the profile in the same session. Includes an illustrative example profile. No change to the 26 patterns.
