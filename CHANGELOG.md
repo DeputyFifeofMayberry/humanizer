@@ -1,10 +1,10 @@
 # Changelog
 
-## Unreleased
+## 3.5.0
 
+- Removed the rhythm check pass added in 3.3.0. Blind judging by a human over all six eval registers preferred the pre-rhythm-check v3.1.0 rewrites 9/0 across two runs (see `evals/blind/JUDGMENTS-human.md`, `JUDGMENTS-human-2.md`): the unevenness and performed looseness the check adds is what the gate reader discounts, and the repo's rule is that a change ships only when it beats the previous version here. The mechanical metrics, `references/rhythm.md` inventory, and eval protocol stay — uniformity remains worth measuring; the skill just no longer varies shape on its own. Step 4's "vary sentence length where the content calls for it, not by formula" guard is unchanged. No change to the 26 patterns.
 - Evals: added a blinded pair pipeline (`evals/make_pairs.py`, hidden key in `evals/blind/key.json`) and ran a smoke judging pass. The smoke run was self-judged — the same model wrote the rewrites and picked the winner, knowing the key — so it validates the plumbing, not the skill.
 - Voice profiles: surveyed 16 prior-art voice/style systems in `references/profiles/PRIOR-ART.md` and folded the adopted lessons into `references/profiles/README.md`: a sample pasted into the request outranks a saved profile, measured bands belong in the profile format, exemplars stay verbatim, only prose the writer owns or published gets profiled, and a grown corpus means rebuilding the profile, not appending.
-- Evidence correction for the 3.3.0 rhythm check: clean blind judging by a human who did not write the rewrites and did not know the key preferred v3.1.0 over v3.3.0 in all three pairs ("cleaner/tidier") — the opposite of the self-judged smoke result. At three pairs and one judge this does not revert 3.3.0, but the rhythm check's benefit is unproven on the human gate, and nothing should build on it until a larger human-judged run says otherwise.
 
 ## 3.4.0
 
