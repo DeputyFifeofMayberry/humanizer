@@ -36,7 +36,11 @@ analysis: ~3.6 points at n=282).
    output per version. The rewriting agent follows `SKILL.md` exactly.
 3. **Mechanical gate.** New version must not: lower `sentence_len_cv` /
    `para_word_cv` (more metronomic), raise `punchy_closers` or `triads`, or add
-   colons as dash-replacement spam. Direction matters, not magnitude.
+   colons as dash-replacement spam. Direction matters, not magnitude. Absolute
+   floors from the human-prose sweep (`results/human-prose-sweep.md`): flag a
+   rewrite below `sentence_len_cv` 0.48 or `para_word_cv` 0.57, or above
+   `balanced_clause_share` 0.5 — no verified-human text in the sweep corpus
+   crosses those lines.
 4. **Blind pairwise.** Judges (a different model family than the rewriter when
    possible) see pairs A/B on the same subject at similar length and answer only
    *"which is the better piece of writing"* — authorship never mentioned. Strip
